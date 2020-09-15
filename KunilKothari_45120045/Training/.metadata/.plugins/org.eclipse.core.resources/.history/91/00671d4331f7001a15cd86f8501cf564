@@ -1,0 +1,16 @@
+package com.first_java;
+
+public class Hello {
+	int i; static int j;
+	
+	public static void main(String[] args) {
+		int k='a';
+		Hello h = new Hello();
+		System.out.println("Hello");
+		System.out.println(h.i);
+		System.out.println(j);
+		System.out.println(k);
+
+	}
+
+}

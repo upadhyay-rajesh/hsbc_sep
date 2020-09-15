@@ -1,0 +1,18 @@
+package Training;
+
+import java.util.Scanner;
+
+public class Centigrade_Fahrenheit {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc= new Scanner(System.in);	
+		System.out.println("Enter the input in Farenheit");
+		int F=sc.nextInt();
+		
+		float c = (9/5)*(F-32);
+		System.out.println("The temperature in degree celcius is:"c);
+	}
+
+}

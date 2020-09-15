@@ -1,0 +1,10 @@
+package Training;
+
+public class Sum_CommandLine {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,10 @@
+package Training;
+
+public class Multiplication_Matrices {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

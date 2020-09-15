@@ -1,0 +1,42 @@
+package Training;
+
+import java.util.Scanner;
+
+public class Ascending_Descending {
+	
+	public void sort(int a[]) {
+		  int n = a.length;  
+	      int temp = 0;  
+	      for(int i=0; i<n;i++){  
+	         for(int j=1; j < (n-i); j++){  
+	            if(a[j-1] > a[j]){  
+	            	temp = a[j-1];  
+                    a[j-1] = a[j];  
+                    a[j] = temp;                
+	                 }
+	         }
+	      }
+	      
+	      System.out.print(a);
+	}
+	            
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("Enter the number of elements to sort");
+		Scanner sc= new Scanner(System.in);	
+		int num=sc.nextInt();
+		System.out.println("Enter the numbers");
+		
+		int a[]=new int[num];
+		for(int i=0;i<num;i++) {
+			a[i]=sc.nextInt();
+		}
+		
+		Ascending_Descending obj = new Ascending_Descending();
+		obj.sort(a);
+		
+	}
+
+}
