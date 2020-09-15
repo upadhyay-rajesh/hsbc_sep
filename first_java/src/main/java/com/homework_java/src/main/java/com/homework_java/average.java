@@ -14,7 +14,7 @@ for(i=0;i<a.length;i++)
 double avg;
 avg=total/a.length;
 
-System.out.println("Averagesssssss is "+avg);
+System.out.println("AverageS is "+avg);
 
 	}
 
