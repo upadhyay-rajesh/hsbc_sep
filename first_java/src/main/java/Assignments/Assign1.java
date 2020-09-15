@@ -9,7 +9,7 @@ public class Assign1 {
            a=Integer.parseInt(ar[0]);
            b=Integer.parseInt(ar[1]);
 
-           s=a+b;
+           s=a+b;//sum
            System.out.println("sum of " + a + " and " + b +" is " +s);
      }
 }
