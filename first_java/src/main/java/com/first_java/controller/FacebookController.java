@@ -20,7 +20,6 @@ public class FacebookController implements FacebookControllerInterface{
 	@Override
 	public void editProfile() {
 		fs.editProfileService();
-
 		
 	}
 
@@ -34,7 +33,6 @@ public class FacebookController implements FacebookControllerInterface{
 	@Override
 	public void viewProfile() {
 		fs.viewProfileService();
-
 		
 	}
 
