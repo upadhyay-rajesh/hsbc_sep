@@ -24,7 +24,7 @@ class Child extends AbstractClass_Demo{
 		AbstractClass_Demo a=new Child();
 		a.sub();
 		a.add();
-		a.mult();
+		//a.mult();
 		
 		
 		Child c=new Child();
