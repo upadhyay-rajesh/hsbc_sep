@@ -14,28 +14,27 @@ public class FacebookController implements FacebookControllerInterface{
 	@Override
 	public void createProfile() {
 		fs.createProfileService();
-		System.out.println("profile created");
 		
 	}
 
 	@Override
 	public void editProfile() {
 		fs.editProfileService();
-		System.out.println("profile edited");
+
 		
 	}
 
 	@Override
 	public void deleteProfile() {
 		fs.deleteProfileService();
-		System.out.println("profile deleted");
+	
 		
 	}
 
 	@Override
 	public void viewProfile() {
 		fs.viewProfileService();
-		System.out.println("profile detail");
+
 		
 	}
 
