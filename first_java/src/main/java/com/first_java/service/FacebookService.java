@@ -1,16 +1,27 @@
 package com.first_java.service;
 
+import com.first_java.dao.FacebookDAO;
+import com.first_java.dao.FacebookDAOInterface;
+
 public class FacebookService implements FacebookServiceInterface{
+	
+	private FacebookDAOInterface fd;
+	
+	public FacebookService() {
+		fd=new FacebookDAO();
+	}
 
 	@Override
 	public void createProfileService() {
+		
+		fd.createProfileDAO();
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void editProfileService() {
-		// TODO Auto-generated method stub
+		fd.editProfileDAO();
 		
 	}
 
