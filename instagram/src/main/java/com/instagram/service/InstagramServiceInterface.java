@@ -1,5 +1,7 @@
 package com.instagram.service;
 
+import java.util.List;
+
 import com.instagram.entity.InstagramUser;
 
 public interface InstagramServiceInterface {
@@ -10,9 +12,9 @@ public interface InstagramServiceInterface {
 
 	void deleteprofileService()throws Exception;
 
-	void viewallprofileService()throws Exception;
+	List<InstagramUser> viewallprofileService()throws Exception;
 
-	void searchprofileService()throws Exception;
+	List<InstagramUser> searchprofileService(InstagramUser iu)throws Exception;
 
 	InstagramUser viewprofileService(InstagramUser iu)throws Exception;
 

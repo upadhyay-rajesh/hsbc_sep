@@ -21,6 +21,7 @@ public class InstagramView {
 	System.out.println("press 4 to view profile");
 	System.out.println("press 5 to search profile");
 	System.out.println("press 6 to viewAll profile");
+	System.out.println("press 7 to create table");
 	
 	
 	
@@ -45,6 +46,8 @@ public class InstagramView {
 		break;
 	case 6:fi.viewAllProfile();
 		break;
+	case 7:fi.createcustomtable();
+	break;
 	default:System.out.println("wrong choice");
 	
 	}

@@ -1,5 +1,7 @@
 package com.instagram.service;
 
+import java.util.List;
+
 import com.instagram.dao.InstagramDAO;
 import com.instagram.dao.InstagramDAOInterface;
 import com.instagram.entity.InstagramUser;
@@ -29,13 +31,13 @@ public class InstagramService implements InstagramServiceInterface {
 
 	}
 
-	public void viewallprofileService() throws Exception{
-		id.viewallProfileDAO();
+	public List<InstagramUser> viewallprofileService() throws Exception{
+		return id.viewallProfileDAO();
 
 	}
 
-	public void searchprofileService() throws Exception{
-		id.searchProfileDAO();
+	public List<InstagramUser> searchprofileService(InstagramUser iu) throws Exception{
+		return id.searchProfileDAO(iu);
 
 	}
 

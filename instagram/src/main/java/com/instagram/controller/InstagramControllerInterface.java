@@ -14,4 +14,6 @@ public interface InstagramControllerInterface {
 
 	void viewProfile()throws Exception;
 
+	void createcustomtable()throws Exception;
+
 }

@@ -1,5 +1,7 @@
 package com.instagram.dao;
 
+import java.util.List;
+
 import com.instagram.entity.InstagramUser;
 
 public interface InstagramDAOInterface {
@@ -10,9 +12,9 @@ public interface InstagramDAOInterface {
 
 	void deleteProfileDAO()throws Exception;
 
-	void searchProfileDAO()throws Exception;
+	List<InstagramUser> searchProfileDAO(InstagramUser iu)throws Exception;
 
-	void viewallProfileDAO()throws Exception;
+	List<InstagramUser> viewallProfileDAO()throws Exception;
 
 	InstagramUser viewProfileDAO(InstagramUser iu)throws Exception;
 

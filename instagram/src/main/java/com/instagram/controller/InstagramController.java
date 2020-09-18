@@ -2,6 +2,7 @@ package com.instagram.controller;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.List;
 
 import com.instagram.entity.InstagramUser;
 import com.instagram.service.InstagramService;
@@ -58,12 +59,41 @@ public class InstagramController implements InstagramControllerInterface {
 	}
 
 	public void searchProfile()throws Exception {
-		is.searchprofileService();
+		
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter Name to search profile : ");
+		String name=br.readLine();
+		
+		InstagramUser iu=new InstagramUser(); //this object is used for transfering data from controller to service
+		iu.setName(name);
+		
+		List<InstagramUser> uu=is.searchprofileService(iu);
+		
+		System.out.println(uu.size()+"  users found");
+		
+		for(InstagramUser u:uu) {
+			System.out.println("****************************************");
+			System.out.println("Name is : "+u.getName());
+			System.out.println("Password is : "+u.getPassword());
+			System.out.println("Email is : "+u.getEmail());
+			System.out.println("Address is : "+u.getAddress());
+			System.out.println("****************************************");
+		}
 
 	}
 
 	public void viewAllProfile() throws Exception{
-		is.viewallprofileService();
+		List<InstagramUser> uu=is.viewallprofileService();
+		System.out.println(uu.size()+"  users found");
+		
+		for(InstagramUser u:uu) {
+			System.out.println("****************************************");
+			System.out.println("Name is : "+u.getName());
+			System.out.println("Password is : "+u.getPassword());
+			System.out.println("Email is : "+u.getEmail());
+			System.out.println("Address is : "+u.getAddress());
+			System.out.println("****************************************");
+		}
 
 	}
 
@@ -88,6 +118,25 @@ public class InstagramController implements InstagramControllerInterface {
 			System.out.println("User with Name : "+name+" not exist");
 		}
 
+	}
+
+	public void createcustomtable() throws Exception {
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter table name ");
+		String name=br.readLine();
+		
+		System.out.println("how many column");
+		int i=Integer.parseInt(br.readLine());
+		
+		for(int j=1;j<=i;j++) {
+			System.out.println("Enter "+j+" column name");
+			String cname=br.readLine();
+			System.out.println("Enter "+j+" column data type");
+			String cdata=br.readLine();
+			System.out.println("Enter "+j+" column size");
+			String csize=br.readLine();
+		}
+		
 	}
 
 }
