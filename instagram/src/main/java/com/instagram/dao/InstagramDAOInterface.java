@@ -4,16 +4,16 @@ import com.instagram.entity.InstagramUser;
 
 public interface InstagramDAOInterface {
 
-	int createProfileDAO(InstagramUser iu);
+	int createProfileDAO(InstagramUser iu)throws Exception;
 
-	void editProfileDAO();
+	void editProfileDAO()throws Exception;
 
-	void deleteProfileDAO();
+	void deleteProfileDAO()throws Exception;
 
-	void searchProfileDAO();
+	void searchProfileDAO()throws Exception;
 
-	void viewallProfileDAO();
+	void viewallProfileDAO()throws Exception;
 
-	void viewProfileDAO();
+	InstagramUser viewProfileDAO(InstagramUser iu)throws Exception;
 
 }

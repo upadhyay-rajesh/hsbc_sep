@@ -4,14 +4,14 @@ public interface InstagramControllerInterface {
 
 	void createProfile() throws Exception;
 
-	void editProfile();
+	void editProfile()throws Exception;
 
-	void deleteProfile();
+	void deleteProfile()throws Exception;
 
-	void searchProfile();
+	void searchProfile()throws Exception;
 
-	void viewAllProfile();
+	void viewAllProfile()throws Exception;
 
-	void viewProfile();
+	void viewProfile()throws Exception;
 
 }

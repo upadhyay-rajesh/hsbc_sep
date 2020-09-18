@@ -47,29 +47,65 @@ public class InstagramController implements InstagramControllerInterface {
 
 	}
 
-	public void editProfile() {
+	public void editProfile()throws Exception {
 		is.editprofileService();
 
 	}
 
-	public void deleteProfile() {
+	public void deleteProfile() throws Exception{
 		is.deleteprofileService();
 
 	}
 
-	public void searchProfile() {
+	public void searchProfile()throws Exception {
 		is.searchprofileService();
 
 	}
 
-	public void viewAllProfile() {
+	public void viewAllProfile() throws Exception{
 		is.viewallprofileService();
 
 	}
 
-	public void viewProfile() {
-		is.viewprofileService();
+	public void viewProfile()throws Exception {
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter Name to view profile : ");
+		String name=br.readLine();
+		
+		InstagramUser iu=new InstagramUser(); //this object is used for transfering data from controller to service
+		iu.setName(name);
+		
+		
+		InstagramUser uu=is.viewprofileService(iu);//this object is used for taking data from service to controller
+		if(uu!=null) {
+			System.out.println("User Information is below");
+			System.out.println("Name is : "+uu.getName());
+			System.out.println("Password is : "+uu.getPassword());
+			System.out.println("Email is : "+uu.getEmail());
+			System.out.println("Address is : "+uu.getAddress());
+		}
+		else {
+			System.out.println("User with Name : "+name+" not exist");
+		}
 
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

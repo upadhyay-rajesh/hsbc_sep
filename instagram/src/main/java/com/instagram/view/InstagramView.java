@@ -10,6 +10,9 @@ public class InstagramView {
 
 	public static void main(String[] args)throws Exception {
 	BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	String cc="y";
+	
+	while(cc.equals("y")) {
 	
 	System.out.println("*********************************MAIN MENU************************");
 	System.out.println("press 1 to create profile");
@@ -44,6 +47,9 @@ public class InstagramView {
 		break;
 	default:System.out.println("wrong choice");
 	
+	}
+	System.out.println("do you want to continue press y/n");
+	cc=br.readLine();
 	}
 
 	}

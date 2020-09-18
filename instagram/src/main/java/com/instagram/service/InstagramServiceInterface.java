@@ -4,16 +4,16 @@ import com.instagram.entity.InstagramUser;
 
 public interface InstagramServiceInterface {
 
-	int createprofileService(InstagramUser iu);
+	int createprofileService(InstagramUser iu)throws Exception;
 
-	void editprofileService();
+	void editprofileService()throws Exception;
 
-	void deleteprofileService();
+	void deleteprofileService()throws Exception;
 
-	void viewallprofileService();
+	void viewallprofileService()throws Exception;
 
-	void searchprofileService();
+	void searchprofileService()throws Exception;
 
-	void viewprofileService();
+	InstagramUser viewprofileService(InstagramUser iu)throws Exception;
 
 }

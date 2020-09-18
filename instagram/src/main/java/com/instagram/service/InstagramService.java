@@ -12,36 +12,47 @@ public class InstagramService implements InstagramServiceInterface {
 		id=new InstagramDAO();
 	}
 
-	public int createprofileService(InstagramUser iu) {
+	public int createprofileService(InstagramUser iu)throws Exception {
 		int i=id.createProfileDAO(iu);
 		
 		return i;
 
 	}
 
-	public void editprofileService() {
+	public void editprofileService()throws Exception {
 		id.editProfileDAO();
 
 	}
 
-	public void deleteprofileService() {
+	public void deleteprofileService()throws Exception {
 		id.deleteProfileDAO();
 
 	}
 
-	public void viewallprofileService() {
+	public void viewallprofileService() throws Exception{
 		id.viewallProfileDAO();
 
 	}
 
-	public void searchprofileService() {
+	public void searchprofileService() throws Exception{
 		id.searchProfileDAO();
 
 	}
 
-	public void viewprofileService() {
-		id.viewProfileDAO();
+	public InstagramUser viewprofileService(InstagramUser iu)throws Exception {
+		InstagramUser uu=id.viewProfileDAO(iu);
+		
+		return uu;
 
 	}
 
 }
+
+
+
+
+
+
+
+
+
