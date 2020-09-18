@@ -18,4 +18,6 @@ public interface InstagramServiceInterface {
 
 	InstagramUser viewprofileService(InstagramUser iu)throws Exception;
 
+	int editprofilebyname(InstagramUser iu)throws Exception;
+
 }

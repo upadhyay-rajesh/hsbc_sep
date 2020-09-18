@@ -49,8 +49,65 @@ public class InstagramController implements InstagramControllerInterface {
 	}
 
 	public void editProfile()throws Exception {
+		viewProfile();
+		
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		
+		System.out.println("press 1 to edit name");
+		System.out.println("press 2 to edit password");
+		System.out.println("press 3 to edit email");
+		System.out.println("press 4 to edit address");
+		
+		System.out.println("enter your choice ");
+		int i=Integer.parseInt(br.readLine());
+		
+		
+		//InstagramControllerInterface fi=new InstagramController();
+		String name="Ashutosh";
+		
+		switch(i) {
+		
+		case 1: editProfilebypassword(name);
+			break;
+		case 2:editProfilebyemail();
+			break;
+		case 3:editProfilebyaddress();
+			break;
+		
+		
+		default:System.out.println("wrong choice");
+		
+		}
 		is.editprofileService();
 
+	}
+
+	private void editProfilebyaddress() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void editProfilebyemail() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+	private void editProfilebypassword(String name)throws Exception {
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter new password : ");
+		String password=br.readLine();
+		
+		InstagramUser iu=new InstagramUser(); //this object is used for transfering data from controller to service
+		iu.setName(name);
+		iu.setPassword(password);
+		
+		int i=is.editprofilebyname(iu);
+		if(i>0) {
+			System.out.println("profile edited");
+		}
+		
 	}
 
 	public void deleteProfile() throws Exception{

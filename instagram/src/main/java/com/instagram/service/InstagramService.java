@@ -48,6 +48,10 @@ public class InstagramService implements InstagramServiceInterface {
 
 	}
 
+	public int editprofilebyname(InstagramUser iu) throws Exception {
+		return id.editprofilebynamedao(iu);
+	}
+
 }
 
 

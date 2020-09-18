@@ -119,6 +119,16 @@ public class InstagramDAO implements InstagramDAOInterface {
 		
 	}
 
+	public int editprofilebynamedao(InstagramUser iu) throws Exception {
+		Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+		Connection con=DriverManager.getConnection("jdbc:derby:d:/firstdb1;create=true","rajesh","rajesh");
+		PreparedStatement ps=con.prepareStatement("update instagramuser set password=? where name=?");
+		ps.setString(1, iu.getPassword());
+		ps.setString(2, iu.getName());
+		
+		return ps.executeUpdate();
+	}
+
 }
 
 

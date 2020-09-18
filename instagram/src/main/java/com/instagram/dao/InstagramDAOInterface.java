@@ -18,4 +18,6 @@ public interface InstagramDAOInterface {
 
 	InstagramUser viewProfileDAO(InstagramUser iu)throws Exception;
 
+	int editprofilebynamedao(InstagramUser iu)throws Exception;
+
 }
