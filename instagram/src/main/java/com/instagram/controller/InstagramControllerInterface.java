@@ -16,4 +16,6 @@ public interface InstagramControllerInterface {
 
 	void createcustomtable()throws Exception;
 
+	void userdetailwithhistory();
+
 }

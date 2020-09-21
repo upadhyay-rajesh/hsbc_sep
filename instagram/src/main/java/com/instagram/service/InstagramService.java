@@ -1,6 +1,7 @@
 package com.instagram.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.instagram.dao.InstagramDAO;
 import com.instagram.dao.InstagramDAOInterface;
@@ -51,6 +52,12 @@ public class InstagramService implements InstagramServiceInterface {
 
 	public int editprofilebyname(InstagramUser iu) throws Exception {
 		return id.editprofilebynamedao(iu);
+	}
+
+	@Override
+	public Map<String, List<InstagramUser>> userdetailwithhistoryservice() {
+		// TODO Auto-generated method stub
+		return id.userdetailwithhistorydao();
 	}
 
 }

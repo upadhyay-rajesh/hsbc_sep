@@ -6,7 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.instagram.entity.InstagramUser;
 import com.instagram.utility.InstagramException;
@@ -61,9 +63,7 @@ public class InstagramDAO implements InstagramDAOInterface {
 		
 		ResultSet res=ps.executeQuery();
 		
-		
-		
-		while(res.next()) {
+	while(res.next()) {
 			InstagramUser uu=new InstagramUser();
 			uu.setName(res.getString(1));
 			uu.setPassword(res.getString(2));
@@ -155,6 +155,19 @@ public class InstagramDAO implements InstagramDAOInterface {
 		ps.setString(2, iu.getName());
 		
 		return ps.executeUpdate();
+	}
+
+	@Override
+	public Map<String, List<InstagramUser>> userdetailwithhistorydao() {
+		Map<String, List<InstagramUser>> m=new HashMap<String, List<InstagramUser>>();
+		
+		List<InstagramUser> l1=viewallProfileDAO();
+		List<InstagramUser> l2=viewallProfileDAO();
+		
+		m.put("studentlist", l1);
+		m.put("proflist", l2);
+		
+		return m;
 	}
 
 }

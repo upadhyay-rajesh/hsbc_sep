@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Map;
 
 import com.instagram.entity.InstagramUser;
 import com.instagram.service.InstagramService;
@@ -210,6 +211,36 @@ public class InstagramController implements InstagramControllerInterface {
 			System.out.println("Enter "+j+" column size");
 			String csize=br.readLine();
 		}
+		
+	}
+
+	@Override
+	public void userdetailwithhistory() {
+		Map<String, List<InstagramUser>> uu=is.userdetailwithhistoryservice();
+		
+		List<InstagramUser>  ll=uu.get("studentlist");
+		
+		for(InstagramUser u:ll) {
+			System.out.println("****************************************");
+			System.out.println("Name is : "+u.getName());
+			System.out.println("Password is : "+u.getPassword());
+			System.out.println("Email is : "+u.getEmail());
+			System.out.println("Address is : "+u.getAddress());
+			System.out.println("****************************************");
+		}
+		
+		
+      List<InstagramUser>  ll1=uu.get("proflist");
+		
+		for(InstagramUser u:ll) {
+			System.out.println("****************************************");
+			System.out.println("Name is : "+u.getName());
+			System.out.println("Password is : "+u.getPassword());
+			System.out.println("Email is : "+u.getEmail());
+			System.out.println("Address is : "+u.getAddress());
+			System.out.println("****************************************");
+		}
+
 		
 	}
 

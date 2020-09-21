@@ -1,6 +1,7 @@
 package com.instagram.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.instagram.entity.InstagramUser;
 import com.instagram.utility.InstagramException;
@@ -20,5 +21,7 @@ public interface InstagramServiceInterface {
 	InstagramUser viewprofileService(InstagramUser iu)throws Exception;
 
 	int editprofilebyname(InstagramUser iu)throws Exception;
+
+	Map<String, List<InstagramUser>> userdetailwithhistoryservice();
 
 }
