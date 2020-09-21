@@ -1,12 +1,14 @@
 package com.instagram.controller;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
 import com.instagram.entity.InstagramUser;
 import com.instagram.service.InstagramService;
 import com.instagram.service.InstagramServiceInterface;
+import com.instagram.utility.InstagramException;
 
 public class InstagramController implements InstagramControllerInterface {
 	
@@ -115,11 +117,18 @@ public class InstagramController implements InstagramControllerInterface {
 
 	}
 
-	public void searchProfile()throws Exception {
-		
+	public void searchProfile() {
+		try {
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Enter Name to search profile : ");
-		String name=br.readLine();
+		String name=null;;
+		
+			name = br.readLine();
+			
+			if(name.length()<3) {
+				throw new InstagramException(name);
+			}
+		
 		
 		InstagramUser iu=new InstagramUser(); //this object is used for transfering data from controller to service
 		iu.setName(name);
@@ -136,10 +145,18 @@ public class InstagramController implements InstagramControllerInterface {
 			System.out.println("Address is : "+u.getAddress());
 			System.out.println("****************************************");
 		}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("custom exception occured "+e);
+		}
+		catch (InstagramException e) {
+			// TODO Auto-generated catch block
+			System.out.println("custom exception occured "+e.uu());
+		}
 
 	}
 
-	public void viewAllProfile() throws Exception{
+	public void viewAllProfile() {
 		List<InstagramUser> uu=is.viewallprofileService();
 		System.out.println(uu.size()+"  users found");
 		

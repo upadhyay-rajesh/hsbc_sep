@@ -3,6 +3,7 @@ package com.instagram.service;
 import java.util.List;
 
 import com.instagram.entity.InstagramUser;
+import com.instagram.utility.InstagramException;
 
 public interface InstagramServiceInterface {
 
@@ -12,9 +13,9 @@ public interface InstagramServiceInterface {
 
 	void deleteprofileService()throws Exception;
 
-	List<InstagramUser> viewallprofileService()throws Exception;
+	List<InstagramUser> viewallprofileService();
 
-	List<InstagramUser> searchprofileService(InstagramUser iu)throws Exception;
+	List<InstagramUser> searchprofileService(InstagramUser iu)throws InstagramException;
 
 	InstagramUser viewprofileService(InstagramUser iu)throws Exception;
 

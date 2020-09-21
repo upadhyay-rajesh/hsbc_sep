@@ -5,6 +5,7 @@ import java.util.List;
 import com.instagram.dao.InstagramDAO;
 import com.instagram.dao.InstagramDAOInterface;
 import com.instagram.entity.InstagramUser;
+import com.instagram.utility.InstagramException;
 
 public class InstagramService implements InstagramServiceInterface {
 	
@@ -31,12 +32,12 @@ public class InstagramService implements InstagramServiceInterface {
 
 	}
 
-	public List<InstagramUser> viewallprofileService() throws Exception{
+	public List<InstagramUser> viewallprofileService() {
 		return id.viewallProfileDAO();
 
 	}
 
-	public List<InstagramUser> searchprofileService(InstagramUser iu) throws Exception{
+	public List<InstagramUser> searchprofileService(InstagramUser iu) throws InstagramException{
 		return id.searchProfileDAO(iu);
 
 	}

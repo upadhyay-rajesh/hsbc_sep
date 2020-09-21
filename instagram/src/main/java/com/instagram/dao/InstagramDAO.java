@@ -4,10 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.instagram.entity.InstagramUser;
+import com.instagram.utility.InstagramException;
 
 public class InstagramDAO implements InstagramDAOInterface {
 
@@ -49,7 +51,9 @@ public class InstagramDAO implements InstagramDAOInterface {
 
 	}
 
-	public List<InstagramUser> searchProfileDAO(InstagramUser iu)throws Exception {
+	public List<InstagramUser> searchProfileDAO(InstagramUser iu)throws InstagramException {
+		List<InstagramUser> ll=new ArrayList<InstagramUser>();
+		try {
 		Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 		Connection con=DriverManager.getConnection("jdbc:derby:d:/firstdb1;create=true","rajesh","rajesh");
 		PreparedStatement ps=con.prepareStatement("select * from instagramuser where name=?");
@@ -57,7 +61,7 @@ public class InstagramDAO implements InstagramDAOInterface {
 		
 		ResultSet res=ps.executeQuery();
 		
-		List<InstagramUser> ll=new ArrayList<InstagramUser>();
+		
 		
 		while(res.next()) {
 			InstagramUser uu=new InstagramUser();
@@ -69,18 +73,30 @@ public class InstagramDAO implements InstagramDAOInterface {
 			ll.add(uu);
 		}
 		
+		if(ll.size()==0) {
+			throw new InstagramException("");
+		}
+		
+		}
+		catch(ClassNotFoundException|SQLException ee) {
+			ee.printStackTrace();
+		}
+		
 		return ll;
 
 	}
 
-	public List<InstagramUser> viewallProfileDAO()throws Exception {
+	public List<InstagramUser> viewallProfileDAO() {
+		List<InstagramUser> ll=new ArrayList<InstagramUser>();
+		Connection con=null;
+		try {
 		Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-		Connection con=DriverManager.getConnection("jdbc:derby:d:/firstdb1;create=true","rajesh","rajesh");
+		con=DriverManager.getConnection("jdbc:derby:d:/firstdb1;create=true","rajesh","rajesh");
 		PreparedStatement ps=con.prepareStatement("select * from instagramuser");
 				
 		ResultSet res=ps.executeQuery();
 		
-		List<InstagramUser> ll=new ArrayList<InstagramUser>();
+		
 		
 		while(res.next()) {
 			InstagramUser uu=new InstagramUser();
@@ -90,6 +106,18 @@ public class InstagramDAO implements InstagramDAOInterface {
 			uu.setAddress(res.getString(4));
 			
 			ll.add(uu);
+		}
+		}
+		catch(ClassNotFoundException|SQLException e1) {
+			e1.printStackTrace();
+		}
+		finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		return ll;
