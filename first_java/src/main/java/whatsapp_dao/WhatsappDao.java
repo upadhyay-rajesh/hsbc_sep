@@ -1,11 +1,30 @@
 package whatsapp_dao;
+import java.util.ArrayList;
+import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import whatsapp_dao.WhatsappDaoInterface;
+import whatsapp_entity.WhatsappUser;
 public class WhatsappDao implements WhatsappDaoInterface {
 
 	@Override
-	public void createProfileDao() {
-		// TODO Auto-generated method stub
-		System.out.println("whatsapp profile created!");
+	public int createProfileDao(WhatsappUser wu) throws Exception{
+		System.out.println(wu.getName());
+		System.out.println(wu.getNumber());
+		Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+		
+		Connection con = DriverManager.getConnection("jdbc:derby:/home/rkdgr8/mydb","ravi", "ravi");
+		PreparedStatement ps = con.prepareStatement("insert into whatsappuser values(?,?)");
+		
+		ps.setString(1, wu.getName());
+		ps.setString(2, wu.getNumber());
+		
+		int i = ps.executeUpdate();
+		
+		return i;
 	}
 
 	@Override
@@ -13,19 +32,84 @@ public class WhatsappDao implements WhatsappDaoInterface {
 		// TODO Auto-generated method stub
 		System.out.println("whatsapp profile edited");
 		
+
 	}
 
 	@Override
-	public void joinGroupDao() {
+	public WhatsappUser deleteProfileDao(WhatsappUser wu) throws Exception {
+		return wu;
 		// TODO Auto-generated method stub
-		System.out.println("whatsapp group joined");
 		
 	}
 
 	@Override
-	public void messageContactDao() {
+	public WhatsappUser viewProfileDao(WhatsappUser wuser) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("messaged a contact on whatsapp");
+		
+		
+		Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+		
+		Connection con = DriverManager.getConnection("jdbc:derby:/home/rkdgr8/mydb","ravi", "ravi");
+		PreparedStatement ps = con.prepareStatement("select * from whatsappuser where name=?");
+		ps.setString(1, wuser.getName());
+		
+		ResultSet res = ps.executeQuery();
+		
+		WhatsappUser wu = new WhatsappUser();
+		if(res.next()) {
+			wu.setName(res.getString(1));
+			wu.setNumber(res.getString(2));
+		}
+		return wu;
+		
 	}
+
+	@Override
+	public List<WhatsappUser> searchProfileDao(WhatsappUser wuser) throws Exception {
+		// TODO Auto-generated method stub
+		
+		Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+		
+		Connection con = DriverManager.getConnection("jdbc:derby:/home/rkdgr8/mydb","ravi", "ravi");
+		PreparedStatement ps = con.prepareStatement("select * from whatsappuser where name=?");
+		ps.setString(1, wuser.getName());
+		
+		ResultSet res = ps.executeQuery();
+		
+		List<WhatsappUser> wlist = new ArrayList<WhatsappUser>();
+		
+		while(res.next()) {
+			WhatsappUser wu = new WhatsappUser();
+			wu.setName(res.getString(1));
+			wu.setNumber(res.getString(2));
+			wlist.add(wu);
+		}
+		return wlist;
+	}
+
+	@Override
+	public List<WhatsappUser> viewAllProfileDao() throws Exception {
+		// TODO Auto-generated method stub
+		
+		Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+		
+		Connection con = DriverManager.getConnection("jdbc:derby:/home/rkdgr8/mydb","ravi", "ravi");
+		PreparedStatement ps = con.prepareStatement("select * from whatsappuser");
+		
+		ResultSet res = ps.executeQuery();
+		
+		List<WhatsappUser> wlist = new ArrayList<WhatsappUser>();
+		
+		while(res.next()) {
+			WhatsappUser wu = new WhatsappUser();
+			wu.setName(res.getString(1));
+			wu.setNumber(res.getString(2));
+			wlist.add(wu);
+		}
+	return wlist;
+		
+	}
+
+	
 
 }

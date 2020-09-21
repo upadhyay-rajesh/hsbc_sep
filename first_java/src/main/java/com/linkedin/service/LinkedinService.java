@@ -1,6 +1,7 @@
 package com.linkedin.service;
 import com.linkedin.service.LinkedinServiceInterface ;
 import com.linkedin.dao.*;
+import com.linkedin.entity.LinkedinUser;
 
 public class LinkedinService implements LinkedinServiceInterface {
 
@@ -16,9 +17,9 @@ public class LinkedinService implements LinkedinServiceInterface {
 	}
 
 	@Override
-	public void signin() {
+	public boolean signin(LinkedinUser lu) {
 		// TODO Auto-generated method stub
-		li.signin();
+		return li.signin(lu);
 	}
 
 	@Override

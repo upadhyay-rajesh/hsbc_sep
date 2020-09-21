@@ -1,5 +1,6 @@
 package com.linkedin.dao;
 import com.linkedin.dao.LinkedinDaoInterface;
+import com.linkedin.entity.LinkedinUser;
 
 public class LinkedinDao implements LinkedinDaoInterface {
 
@@ -10,9 +11,9 @@ public class LinkedinDao implements LinkedinDaoInterface {
 	}
 
 	@Override
-	public void signin() {
+	public boolean signin(LinkedinUser lu) {
 		// TODO Auto-generated method stub
-		System.out.println("You've been logged in to linkedin");
+		return Math.random() > 0.5 ? true : false;
 		
 	}
 
