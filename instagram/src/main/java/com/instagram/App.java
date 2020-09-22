@@ -1,7 +1,7 @@
-package com.instagram;
+package com.Instagram;
 
 /**
- * Hello world!sf
+ * Hello world!
  *
  */
 public class App 

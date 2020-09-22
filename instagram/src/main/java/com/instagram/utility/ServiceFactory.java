@@ -1,17 +1,19 @@
-package com.instagram.utility;
+package com.Instagram.utility;
 
-import com.instagram.service.InstagramService;
-import com.instagram.service.InstagramServiceInterface;
+import com.Instagram.service.InstaService;
+import com.Instagram.service.InstaServiceInterface;
 
 public class ServiceFactory {
+	//no one will be able to create obj of this servicefactory because private
 	private ServiceFactory() {
 		
+		
 	}
-	
-	public static InstagramServiceInterface createObject(String nn) {
-		InstagramServiceInterface is=null;
+	//if obj is to be created call createObject
+	public static InstaServiceInterface createObject(String nn) {
+		InstaServiceInterface is =null;
 		if(nn.equals("adminservice")) {
-			is=new InstagramService();
+			is=new InstaService();
 		}
 		return is;
 	}
