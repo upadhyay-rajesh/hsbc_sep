@@ -4,10 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.instagram.entity.InstagramUser;
+import com.instagram.utility.InstagramException;
 
 public class InstagramDAO implements InstagramDAOInterface {
 
@@ -49,7 +53,9 @@ public class InstagramDAO implements InstagramDAOInterface {
 
 	}
 
-	public List<InstagramUser> searchProfileDAO(InstagramUser iu)throws Exception {
+	public List<InstagramUser> searchProfileDAO(InstagramUser iu)throws InstagramException {
+		List<InstagramUser> ll=new ArrayList<InstagramUser>();
+		try {
 		Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 		Connection con=DriverManager.getConnection("jdbc:derby:d:/firstdb1;create=true","rajesh","rajesh");
 		PreparedStatement ps=con.prepareStatement("select * from instagramuser where name=?");
@@ -57,7 +63,40 @@ public class InstagramDAO implements InstagramDAOInterface {
 		
 		ResultSet res=ps.executeQuery();
 		
+	while(res.next()) {
+			InstagramUser uu=new InstagramUser();
+			uu.setName(res.getString(1));
+			uu.setPassword(res.getString(2));
+			uu.setEmail(res.getString(3));
+			uu.setAddress(res.getString(4));
+			
+			ll.add(uu);
+		}
+		
+		if(ll.size()==0) {
+			throw new InstagramException("");
+		}
+		
+		}
+		catch(ClassNotFoundException|SQLException ee) {
+			ee.printStackTrace();
+		}
+		
+		return ll;
+
+	}
+
+	public List<InstagramUser> viewallProfileDAO() {
 		List<InstagramUser> ll=new ArrayList<InstagramUser>();
+		Connection con=null;
+		try {
+		Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+		con=DriverManager.getConnection("jdbc:derby:d:/firstdb1;create=true","rajesh","rajesh");
+		PreparedStatement ps=con.prepareStatement("select * from instagramuser");
+				
+		ResultSet res=ps.executeQuery();
+		
+		
 		
 		while(res.next()) {
 			InstagramUser uu=new InstagramUser();
@@ -68,28 +107,17 @@ public class InstagramDAO implements InstagramDAOInterface {
 			
 			ll.add(uu);
 		}
-		
-		return ll;
-
-	}
-
-	public List<InstagramUser> viewallProfileDAO()throws Exception {
-		Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-		Connection con=DriverManager.getConnection("jdbc:derby:d:/firstdb1;create=true","rajesh","rajesh");
-		PreparedStatement ps=con.prepareStatement("select * from instagramuser");
-				
-		ResultSet res=ps.executeQuery();
-		
-		List<InstagramUser> ll=new ArrayList<InstagramUser>();
-		
-		while(res.next()) {
-			InstagramUser uu=new InstagramUser();
-			uu.setName(res.getString(1));
-			uu.setPassword(res.getString(2));
-			uu.setEmail(res.getString(3));
-			uu.setAddress(res.getString(4));
-			
-			ll.add(uu);
+		}
+		catch(ClassNotFoundException|SQLException e1) {
+			e1.printStackTrace();
+		}
+		finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		return ll;
@@ -127,6 +155,19 @@ public class InstagramDAO implements InstagramDAOInterface {
 		ps.setString(2, iu.getName());
 		
 		return ps.executeUpdate();
+	}
+
+	@Override
+	public Map<String, List<InstagramUser>> userdetailwithhistorydao() {
+		Map<String, List<InstagramUser>> m=new HashMap<String, List<InstagramUser>>();
+		
+		List<InstagramUser> l1=viewallProfileDAO();
+		List<InstagramUser> l2=viewallProfileDAO();
+		
+		m.put("studentlist", l1);
+		m.put("proflist", l2);
+		
+		return m;
 	}
 
 }

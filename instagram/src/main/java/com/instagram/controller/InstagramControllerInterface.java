@@ -10,10 +10,12 @@ public interface InstagramControllerInterface {
 
 	void searchProfile()throws Exception;
 
-	void viewAllProfile()throws Exception;
+	void viewAllProfile();
 
 	void viewProfile()throws Exception;
 
 	void createcustomtable()throws Exception;
+
+	void userdetailwithhistory();
 
 }
