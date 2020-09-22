@@ -11,6 +11,7 @@ import com.instagram.entity.InstagramUser;
 import com.instagram.service.InstagramService;
 import com.instagram.service.InstagramServiceInterface;
 import com.instagram.utility.InstagramException;
+import com.instagram.utility.ServiceFactory;
 import com.instagram.utility.SortBy_Address;
 import com.instagram.utility.SortBy_Email;
 
@@ -19,7 +20,8 @@ public class InstagramController implements InstagramControllerInterface {
 	private InstagramServiceInterface is;
 	
 	public InstagramController() {
-		is=new InstagramService();
+		//is=new InstagramService();
+		is=ServiceFactory.createObject("adminservice");
 	}
 
 	public void createProfile() throws Exception{
