@@ -3,6 +3,7 @@ package com.instagram.controller;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,8 @@ import com.instagram.entity.InstagramUser;
 import com.instagram.service.InstagramService;
 import com.instagram.service.InstagramServiceInterface;
 import com.instagram.utility.InstagramException;
+import com.instagram.utility.SortBy_Address;
+import com.instagram.utility.SortBy_Email;
 
 public class InstagramController implements InstagramControllerInterface {
 	
@@ -159,6 +162,10 @@ public class InstagramController implements InstagramControllerInterface {
 
 	public void viewAllProfile() {
 		List<InstagramUser> uu=is.viewallprofileService();
+		
+		Collections.sort(uu, new SortBy_Email());
+		
+		
 		System.out.println(uu.size()+"  users found");
 		
 		for(InstagramUser u:uu) {
