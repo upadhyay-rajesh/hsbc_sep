@@ -157,7 +157,7 @@ public class InstagramController implements InstagramControllerInterface {
 		}
 		catch (InstagramException e) {
 			// TODO Auto-generated catch block
-			System.out.println("custom exception occured "+e.uu());
+			System.out.println("custom exception occured "+e);
 		}
 
 	}

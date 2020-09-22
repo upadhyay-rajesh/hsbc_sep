@@ -14,8 +14,15 @@ import com.instagram.entity.InstagramUser;
 import com.instagram.utility.InstagramException;
 
 public class InstagramDAO implements InstagramDAOInterface {
+	private List<InstagramUser> ll=null;
+	public InstagramDAO() {
+		ll=new ArrayList<InstagramUser>();
+		System.out.println(adminpath);
+		
+	}
 
 	public int createProfileDAO(InstagramUser iu)throws Exception {
+		ll.add(iu);
 		
 		int i=0;
 		
@@ -75,7 +82,9 @@ public class InstagramDAO implements InstagramDAOInterface {
 		
 		if(ll.size()==0) {
 			throw new InstagramException("");
+			
 		}
+		
 		
 		}
 		catch(ClassNotFoundException|SQLException ee) {
