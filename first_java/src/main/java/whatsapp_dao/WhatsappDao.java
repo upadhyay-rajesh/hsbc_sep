@@ -1,6 +1,8 @@
 package whatsapp_dao;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,19 +14,29 @@ public class WhatsappDao implements WhatsappDaoInterface {
 
 	@Override
 	public int createProfileDao(WhatsappUser wu) throws Exception{
-		System.out.println(wu.getName());
-		System.out.println(wu.getNumber());
-		Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+//		System.out.println(wu.getName());
+//		System.out.println(wu.getNumber());
+//		Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+//		
+//		Connection con = DriverManager.getConnection("jdbc:derby:/home/rkdgr8/mydb","ravi", "ravi");
+//		PreparedStatement ps = con.prepareStatement("insert into whatsappuser values(?,?)");
+//		
+//		ps.setString(1, wu.getName());
+//		ps.setString(2, wu.getNumber());
+//		
+//		int i = ps.executeUpdate();
+		File f1 = new File("/home/rkdgr8/newdir/two.txt");
+		FileOutputStream out = new FileOutputStream(f1,true);
+		out.write('\n');
+		for(int i=0;i<wu.getName().length();i++) {
+			out.write(wu.getName().charAt(i));
+		}
+		out.write(' ');
+		for(int i=0;i<wu.getNumber().length();i++) {
+			out.write(wu.getNumber().charAt(i));
+		}
 		
-		Connection con = DriverManager.getConnection("jdbc:derby:/home/rkdgr8/mydb","ravi", "ravi");
-		PreparedStatement ps = con.prepareStatement("insert into whatsappuser values(?,?)");
-		
-		ps.setString(1, wu.getName());
-		ps.setString(2, wu.getNumber());
-		
-		int i = ps.executeUpdate();
-		
-		return i;
+		return 1;
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package com.instagram.dao;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,6 +17,10 @@ import com.instagram.utility.InstagramException;
 
 public class InstagramDAO implements InstagramDAOInterface {
 
+//	private List<InstagramUser> ll = null;
+//	public InstagramDAO() {
+//		ll = new ArrayList<InstagramUser>();
+//	}
 	public int createProfileDAO(InstagramUser iu)throws Exception {
 		
 		int i=0;
@@ -40,6 +46,7 @@ public class InstagramDAO implements InstagramDAOInterface {
 		i=ps.executeUpdate();
 						
 		return i;
+
 
 	}
 

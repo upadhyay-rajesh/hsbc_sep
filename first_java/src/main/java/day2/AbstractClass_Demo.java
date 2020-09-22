@@ -8,6 +8,8 @@ public abstract class AbstractClass_Demo {
 		System.out.println("sub");
 	}
 
+	protected abstract void mult();
+
 }
 
 
