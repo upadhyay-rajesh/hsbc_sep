@@ -1,6 +1,8 @@
 package whatsapp_entity;
 
-public class WhatsappUser {
+import java.io.Serializable;
+
+public class WhatsappUser implements Serializable {
 	private String name;
 	private String number;
 	public String getName() {

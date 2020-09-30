@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+#container{
+	display: inline-block;
+	position: relative;
+}
+#country,#city,#state{
+	min-width: 150px;
+}
+
+.content-container{
+	position: absolute;
+	top:100%;
+	max-height:100px;
+	overflow:auto;
+	min-width:100%;
+	background: white;
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 10px 0px;
+}
+ul{
+	list-style: none;
+	padding:0;
+	margin:0;
+}
+li{
+	text-align: left;
+	padding-left:10px;
+}
+li:hover{
+	background-color: rgb(94, 35, 220);
+}

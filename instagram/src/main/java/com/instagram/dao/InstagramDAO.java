@@ -64,7 +64,7 @@ public class InstagramDAO implements InstagramDAOInterface {
 		List<InstagramUser> ll=new ArrayList<InstagramUser>();
 		try {
 		Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-		Connection con=DriverManager.getConnection("jdbc:derby:d:/firstdb1;create=true","rajesh","rajesh");
+		Connection con=DriverManager.getConnection("jdbc:derby: /home/rkdgr8/instagramdb;create=true","ravi","ravi");
 		PreparedStatement ps=con.prepareStatement("select * from instagramuser where name=?");
 		ps.setString(1, iu.getName());
 		

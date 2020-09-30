@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Fri Sep 18 15:17:02 IST 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-0174-a09c-25c4-00000375a5d8 
-on database directory /home/rkdgr8/mydb with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@55054057 
+Wed Sep 23 16:52:27 IST 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-0174-bab3-4d35-00000323b008 
+on database directory /home/rkdgr8/mydb with class loader sun.misc.Launcher$AppClassLoader@4e0e2f2a 
 Loaded from file:/home/rkdgr8/Downloads/db-derby-10.13.1.1-bin/lib/derby.jar
-java.vendor=Ubuntu
-java.runtime.version=11.0.8+10-post-Ubuntu-0ubuntu118.04.1
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_261-b12
 user.dir=/home/rkdgr8/Documents/Day2/hsbc_sep/first_java
 os.name=Linux
 os.arch=amd64
