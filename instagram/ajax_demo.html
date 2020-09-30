@@ -52,17 +52,91 @@
 		}
 		
 	}
+function loadstate(){
+		
+	var c=document.getElementById("cc").value;
+	
+		var x=new XMLHttpRequest();
+		//step 2 how xhr will open connection with server
+		x.open("GET","state.jsp?countryname="+c,true);
+		
+		//step 3 how xhr will send request
+		x.send();
+		
+		//step 4 how xhr will get response from server
+		//state={0,1,2,3,4}
+		
+		x.onreadystatechange=function(){
+			if(x.readyState==4){
+				var vv=x.responseText;
+				document.getElementById("state").innerHTML=vv;
+				
+			}
+		}
+		
+	}
+	
+function loadcity(){
+	
+	var c=document.getElementById("ss").value;
+	
+		var x=new XMLHttpRequest();
+		//step 2 how xhr will open connection with server
+		x.open("GET","city.jsp?statename="+c,true);
+		
+		//step 3 how xhr will send request
+		x.send();
+		
+		//step 4 how xhr will get response from server
+		//state={0,1,2,3,4}
+		
+		x.onreadystatechange=function(){
+			if(x.readyState==4){
+				var vv=x.responseText;
+				document.getElementById("city").innerHTML=vv;
+				
+			}
+		}
+		
+	}
+	
+function loadDate(){
+		
+		var x=new XMLHttpRequest();
+		//step 2 how xhr will open connection with server
+		x.open("GET","date.jsp",true);
+		
+		//step 3 how xhr will send request
+		x.send();
+		
+		//step 4 how xhr will get response from server
+		//state={0,1,2,3,4}
+		
+		x.onreadystatechange=function(){
+			if(x.readyState==4){
+				var vv=x.responseText;
+				document.getElementById("dd").innerHTML=vv;
+				
+			}
+		}
+		setTimeout("loadDate()",5000);
+		
+	}
+loadDate();
+	
 
 </script>
 
 </head>
 <body onload="loadcountry()">
-
+<div id="dd"></div> <br>
 
 <form method="post" action="">
 	Name: <input type=text id="nn" onkeyup="validate()"> <div id="rr"></div>
 	
 	<br> <div id="cou"></div>
+	<br> <div id="state"></div>
+	<br> <div id="city"></div>
 </form>
 
 </body>

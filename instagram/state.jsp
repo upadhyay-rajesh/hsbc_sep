@@ -6,10 +6,21 @@
 List<String> i=fs.country(); --%>
 
 <%
+String cname=request.getParameter("countryname");
+
 List<String> i=new ArrayList<String>();
-i.add("India");
-i.add("US");
-String ss="<select id=cc name=country   onchange=loadstate()>";
+
+if(cname.equals("India")){
+	i.add("Karnataka");
+	i.add("Punjab");
+}
+if(cname.equals("US")){
+	i.add("Sansfransisko");
+	i.add("Bostan");
+}
+
+
+String ss="<select id=ss name=state  onchange=loadcity()>";
 for(String ll:i){
 	ss=ss+"<option value='"+ll+"'>"+ll+"</option>";
 }
