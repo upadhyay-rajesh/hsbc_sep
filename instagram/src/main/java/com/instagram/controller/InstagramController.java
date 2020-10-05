@@ -15,7 +15,7 @@ import com.instagram.utility.ServiceFactory;
 import com.instagram.utility.SortBy_Address;
 import com.instagram.utility.SortBy_Email;
 
-public class InstagramController implements InstagramControllerInterface {
+public class InstagramController  {
 	
 	private InstagramServiceInterface is;
 	
@@ -223,7 +223,7 @@ public class InstagramController implements InstagramControllerInterface {
 		
 	}
 
-	@Override
+	
 	public void userdetailwithhistory() {
 		Map<String, List<InstagramUser>> uu=is.userdetailwithhistoryservice();
 		
