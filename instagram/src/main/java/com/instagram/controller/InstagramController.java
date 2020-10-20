@@ -11,15 +11,17 @@ import com.instagram.entity.InstagramUser;
 import com.instagram.service.InstagramService;
 import com.instagram.service.InstagramServiceInterface;
 import com.instagram.utility.InstagramException;
+import com.instagram.utility.ServiceFactory;
 import com.instagram.utility.SortBy_Address;
 import com.instagram.utility.SortBy_Email;
 
-public class InstagramController implements InstagramControllerInterface {
+public class InstagramController  {
 	
 	private InstagramServiceInterface is;
 	
 	public InstagramController() {
-		is=new InstagramService();
+		//is=new InstagramService();
+		is=ServiceFactory.createObject("adminservice");
 	}
 
 	public void createProfile() throws Exception{
@@ -155,7 +157,7 @@ public class InstagramController implements InstagramControllerInterface {
 		}
 		catch (InstagramException e) {
 			// TODO Auto-generated catch block
-			System.out.println("custom exception occured "+e.uu());
+			System.out.println("custom exception occured "+e);
 		}
 
 	}
@@ -221,7 +223,7 @@ public class InstagramController implements InstagramControllerInterface {
 		
 	}
 
-	@Override
+	
 	public void userdetailwithhistory() {
 		Map<String, List<InstagramUser>> uu=is.userdetailwithhistoryservice();
 		

@@ -30,26 +30,44 @@ public class InstagramView {
 	int i=Integer.parseInt(br.readLine());
 	
 	
-	InstagramControllerInterface fi=new InstagramController();
-	
+	//InstagramControllerInterface fi=new InstagramController();
+	InstagramController c=InstagramControllerInterface.createObject("adminservice");
 	
 	switch(i) {
 	
-	case 1: fi.createProfile();
+	case 1: 
+		InstagramControllerInterface fi=c::createProfile;
+		fi.abc();
 		break;
-	case 2: fi.editProfile();
+	case 2: 
+		InstagramControllerInterface fi1=c::editProfile;
+		fi1.abc();
+		
 		break;
-	case 3:fi.deleteProfile();
+	case 3:InstagramControllerInterface fi2=c::deleteProfile;
+	fi2.abc();
+	
 		break;
-	case 4:fi.viewProfile();
+	case 4:
+		InstagramControllerInterface fi3=c::viewProfile;
+		fi3.abc();
+		
 		break;
-	case 5:fi.searchProfile();
+	case 5:InstagramControllerInterface fi4=c::searchProfile;
+	fi4.abc();
+	
 		break;
-	case 6:fi.viewAllProfile();
+	case 6:InstagramControllerInterface fi5=c::viewAllProfile;
+	fi5.abc();
+	
 		break;
-	case 7:fi.createcustomtable();
+	case 7:InstagramControllerInterface fi6=c::createcustomtable;
+	fi6.abc();
+	
 	break;
-	case 8:fi.userdetailwithhistory();
+	case 8:InstagramControllerInterface fi7=c::userdetailwithhistory;
+	fi7.abc();
+	
 	break;
 	default:System.out.println("wrong choice");
 	

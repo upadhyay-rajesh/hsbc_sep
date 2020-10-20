@@ -38,8 +38,15 @@ public class InstagramService implements InstagramServiceInterface {
 
 	}
 
-	public List<InstagramUser> searchprofileService(InstagramUser iu) throws InstagramException{
-		return id.searchProfileDAO(iu);
+	public List<InstagramUser> searchprofileService(InstagramUser iu)throws InstagramException {
+		List<InstagramUser> ll=null;
+		try {
+			ll=id.searchProfileDAO(iu);
+		}
+		catch(InstagramException e) {
+			throw new InstagramException("");
+		}
+		return ll;
 
 	}
 

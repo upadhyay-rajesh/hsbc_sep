@@ -7,6 +7,8 @@ import com.instagram.entity.InstagramUser;
 import com.instagram.utility.InstagramException;
 
 public interface InstagramDAOInterface {
+	
+	String adminpath="c:/";
 
 	int createProfileDAO(InstagramUser iu)throws Exception;
 
