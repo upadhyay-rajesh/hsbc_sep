@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue Oct 20 10:57:09 IST 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-0175-4479-b9a9-000002d71f20 
+on database directory /home/rkdgr8/Downloads/instaDB with class loader sun.misc.Launcher$AppClassLoader@764c12b6 
+Loaded from file:/home/rkdgr8/Downloads/db-derby-10.13.1.1-bin/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_261-b12
+user.dir=/home/rkdgr8/Documents/instaBackend
+os.name=Linux
+os.arch=amd64
+os.version=5.0.0-37-generic
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
