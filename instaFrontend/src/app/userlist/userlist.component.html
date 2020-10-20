@@ -1,0 +1,72 @@
+<form #userForm="ngForm" (ngSubmit)="createUser(userForm)" novalidate>
+    <div class="form-group">
+        <label for="userid">User ID</label>
+        <input type="text" id="userid" class="form-control" required name="userid" [(ngModel)]="newUser.id"
+            #userid="ngModel">
+        <div [hidden]="userid.valid || userid.pristine" class="alert alert-danger">
+            User ID is required
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" required name="password"
+            [(ngModel)]="newUser.password" #password="ngModel">
+        <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+            Password is required
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" class="form-control" required name="name" [(ngModel)]="newUser.name"
+            #name="ngModel">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            Name is required
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" required name="email" [(ngModel)]="newUser.email"
+            #email="ngModel">
+        <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+            Email is required
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Submit</button>
+</form>
+
+<table>
+    <tr>
+        <th> User id</th>
+        <th> Name </th>
+        <th> Email </th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let user of users">
+
+        <td *ngIf="!(editing && editingUser.id === user.id)"> {{user.id}} </td>
+        <td *ngIf="!(editing && editingUser.id === user.id)"> {{user.name}} </td>
+        <td *ngIf="!(editing && editingUser.id === user.id)">{{user.email}}</td>
+        <td *ngIf="!(editing && editingUser.id === user.id)"> <button (click)="editUser(user)" class='wbtn'> Edit
+            </button></td>
+        <td *ngIf="!(editing && editingUser.id === user.id)"> <button (click)="deleteUser(user.id)" class='wbtn'> Delete
+            </button>
+        </td>
+
+        <td *ngIf="editing && editingUser.id === user.id"> <input type="text" class='noB form-control'
+                [(ngModel)]="editingUser.id"> </td>
+        <td *ngIf="editing && editingUser.id === user.id"> <input type="text" class='noB form-control'
+                [(ngModel)]="editingUser.name"> </td>
+        <td *ngIf="editing && editingUser.id === user.id"> <input type="email" class='noB form-control'
+                [(ngModel)]="editingUser.email"> </td>
+        <td *ngIf="editing && editingUser.id === user.id"> <button (click)="doneEditing()" class='wbtn'> Done </button>
+        </td>
+        <td *ngIf="editing && editingUser.id === user.id"> <button (click)="cancelEditing()" class='wbtn'> Cancel
+            </button></td>
+
+    </tr>
+</table>
